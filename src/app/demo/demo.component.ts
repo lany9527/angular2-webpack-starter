@@ -3,7 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import {ValidateFormComponent} from "../components/ValidateForm/ValidateForm.component";
 
 console.log('`Demo` component loaded asynchronously');
-
+@Component({
+  selector: 'content-child',
+  template:   `<h1>content-child</h1>`
+})
+class ContentChild{}
 @Component({
   selector: 'demo',
   directives: [ValidateFormComponent],
