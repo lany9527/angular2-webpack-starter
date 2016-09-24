@@ -17,6 +17,8 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState } from './app.service';
 import { Home } from './home';
 import { About } from './about';
+import { Demo } from './demo';
+// import { ValidateFormComponent } from './components/ValidateForm';
 import { NoContent } from './no-content';
 
 // Import diretives
@@ -32,11 +34,13 @@ const APP_PROVIDERS = [
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-  bootstrap: [ App ],
+  bootstrap: [App],
   declarations: [
     App,
     About,
     Home,
+    Demo,
+    // ValidateForm,
     NoContent,
     XLarge
   ],
@@ -53,7 +57,7 @@ const APP_PROVIDERS = [
   ]
 })
 export class AppModule {
-  constructor(public appRef: ApplicationRef, public appState: AppState) {}
+  constructor(public appRef: ApplicationRef, public appState: AppState) { }
   hmrOnInit(store) {
     if (!store || !store.state) return;
     console.log('HMR store', store);
