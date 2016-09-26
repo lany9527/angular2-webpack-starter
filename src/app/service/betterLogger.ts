@@ -2,7 +2,7 @@
  * Created by littlestone on 2016/9/26.
  */
 import {Injectable} from '@angular/core';
-import {LoggerHelper} from './loggerHelper.service'
+// import {LoggerHelper} from './loggerHelper.service'
 
 @Injectable()
 export class BetterLogger{
