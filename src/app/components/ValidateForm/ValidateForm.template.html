@@ -1,6 +1,54 @@
-<md-card>
-  <md-card-title-group>
-    <md-card-title>ValidateForm</md-card-title>
-    <md-card-subtitle>Subtitle</md-card-subtitle>
-  </md-card-title-group>
-</md-card>
+<!--
+<div class="DEMO-form-container">
+  <h1>This is A Awesome Form!</h1>
+  <p class="user-msg">UserInfo: {{// userInfo}}</p>
+  <form class="DEMO-form" *ngIf="active" (ngSubmit)="submitForm()" #userForm="ngForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input  [(ngModel)]="users.username" name="username" required #spy #username="ngModel"
+              type="text" class="form-control" id="username" placeholder="Username">
+      <p [hidden]="username.valid || username.pristine" class="alert alert-danger">用户名不可以为空!</p>
+      <p>className: {{spy.className}}</p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input  [(ngModel)]="users.email" name="email"
+              type="email" class="form-control" id="email" placeholder="Email">
+    </div>
+    &lt;!&ndash;<div class="form-group">
+      <label for="motto">Motto</label>
+      <input  [(ngModel)]="users.motto" name="motto"
+              type="text" class="form-control" id="motto" placeholder="Motto">
+    </div>&ndash;&gt;
+    <div class="form-group">
+      <label for="favorite">Favorite fruit</label>
+      &lt;!&ndash;<select [(ngModel)]="users.favorite" name="favorite" id="favorite" class="form-control">
+        <option *ngFor="let fruit of favoriteFruitList"
+                [value]="fruit">{{fruit}}</option>
+      </select>&ndash;&gt;
+    </div>
+    <button [disabled]="!userForm.form.valid" type="submit" class="btn btn-default">Submit</button>
+    {{userForm.form.valid}}
+    <button class="btn btn-primary" (click)="addUser()" type="button" class="btn btn-default">addUser</button>
+  </form>
+</div>-->
+<!--<ul>
+  <li *ngFor="let user of users">
+    用户的姓名: {{user.name}};
+    用户的年龄: {{user.age}};
+    用户的邮箱: {{user.email}}
+    用户的格言: {{user.motto}}
+  </li>
+</ul>-->
+
+<md-list>
+  <md-list-item *ngFor="let user of users">
+    <img md-list-avatar src="../../../assets/icon/android-icon-48x48.png" alt="...">
+    <h3 md-line> {{user.name}} </h3>
+    <p md-line>
+      <span> {{user.age}} </span>
+      <span> {{user.email}} </span>
+      <span class="demo-2"> -- {{user.motto}} </span>
+    </p>
+  </md-list-item>
+</md-list>
