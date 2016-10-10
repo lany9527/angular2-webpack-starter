@@ -7,14 +7,15 @@ import { UserService} from '../../service/user.service'
 import { User } from '../../class/User';
 import { Logger } from "../../service/logger.service";
 import {BetterLogger} from "../../service/betterLogger";
-/*import {LoggerHelper} from "../../service/loggerHelper.service";*/
+import {LoggerHelper} from "../../service/loggerHelper.service";
 
 @Component({
   selector: 'validate-form',
   templateUrl: './ValidateForm.template.html',
   providers: [
-    [{provide: Logger, useClass: BetterLogger}],
     UserService,
+    [{provide: Logger, useExisting: BetterLogger}],
+    [{provide: BetterLogger, userClass: BetterLogger}]
     // [{provider: Logger, userClass: BetterLogger}],
     // [LoggerHelper, {provide: Logger, userClass: BetterLogger}]
     // Logger
