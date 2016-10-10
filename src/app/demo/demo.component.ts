@@ -2,11 +2,7 @@ import { ViewChild, ViewChildren, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {ValidateFormComponent} from "../components/ValidateForm/ValidateForm.component";
 
-console.log('`Demo` component loaded asynchronously');
-@Component({
-  selector: 'content-child',
-  template:   `<h1>content-child</h1>`
-})
+
 class ContentChild{}
 @Component({
   selector: 'demo',
@@ -22,7 +18,7 @@ export class Demo {
   }
 
   ngOnInit() {
-    console.log('hello `Demo` component');
+    // console.log('hello `Demo` component');
     this.route
       .data
       .subscribe((data: any) => {
@@ -30,7 +26,7 @@ export class Demo {
         this.localState = data.yourData;
       });
 
-    console.log('hello `Demo` component');
+    // console.log('hello `Demo` component');
   }
   asyncDataWithWebpack() {
   }

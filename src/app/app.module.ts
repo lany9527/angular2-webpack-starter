@@ -17,7 +17,8 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState } from './app.service';
 import { Home } from './home';
 import { About } from './about';
-import { Demo } from './demo';
+// import { Demo } from './demo';
+import { Product } from './product';
 // import { ValidateFormComponent } from './components/ValidateForm';
 import { NoContent } from './no-content';
 
@@ -39,7 +40,8 @@ const APP_PROVIDERS = [
     App,
     About,
     Home,
-    Demo,
+    // Demo,
+    Product,
     // ValidateForm,
     NoContent,
     XLarge

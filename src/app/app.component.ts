@@ -32,8 +32,11 @@ import { AppState } from './app.service';
           <a md-button [routerLink]=" ['./about'] ">
             About
           </a>
-        <a md-button [routerLink]=" ['./demo'] ">
+          <!--<a md-button [routerLink]=" ['./demo'] ">
             Demo
+          </a>-->
+          <a md-button [routerLink]=" ['./product'] ">
+            product
           </a>
       </md-toolbar>
 

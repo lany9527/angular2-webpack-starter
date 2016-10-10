@@ -2,7 +2,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { Home } from './home';
 import { About } from './about';
 import { NoContent } from './no-content';
-import { Demo } from './demo';
+// import { Demo } from './demo';
+import { Product } from './product';
 
 import { DataResolver } from './app.resolver';
 
@@ -14,6 +15,7 @@ export const ROUTES: Routes = [
   {
     path: 'detail', loadChildren: () => System.import('./+detail')
   },
-  { path: 'demo', component: Demo },
+  // { path: 'demo', component: Demo },
+  { path: 'product', component: Product },
   { path: '**', component: NoContent },// must be at last position
 ];
