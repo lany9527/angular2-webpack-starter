@@ -1,9 +1,9 @@
 import {ViewChild, ViewChildren, Component} from '@angular/core';
-import {ProductListComponent} from "../components/ProductList/ProductList.component";
+import {InventoryApp} from "../components/ProductList/ProductList.component";
 
 @Component({
   selector: 'product',
-  directives: [ProductListComponent],
+  directives: [InventoryApp],
   templateUrl: './product.template.html',
 
 })

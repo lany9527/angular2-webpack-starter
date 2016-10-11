@@ -1,0 +1,37 @@
+.product-image{
+  margin-top: 60px;
+  float: left;
+}
+.product-department{
+  color: deepskyblue;
+  padding-top: 20px;
+}
+.product-row{
+  padding: 40px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #999;
+  clear: both;
+}
+.product-info{
+  float: left;
+  padding: 40px;
+}
+.product-name{
+  font-size: 30px;
+  padding-top: 20px;
+}
+.product-sku{
+  font-size: 20px;
+  padding-top: 20px;
+}
+.product-nav{
+  color: deepskyblue;
+}
+.product-price{
+  color: #009688;
+  float: right;
+  padding-top: 60px;
+  padding-right: 160px;
+  font-size: 30px;
+  cursor: pointer;
+}

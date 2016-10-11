@@ -1,20 +1,116 @@
-import {Component} from "@angular/core";
+import {Component, EventEmitter} from "@angular/core";
 class Product {
-  constructor(
-    public sku: string,
-    public name: string,
-    public imageUrl: string,
-    public deppartment: string[],
-    public price: number
-  ){}
+  constructor(public sku: string,
+              public name: string,
+              public imageUrl: string,
+              public department: string[],
+              public price: number) {
+  }
 }
+//product-image
 @Component({
-  selector: 'product-list',
-  // tempalteUrl: './ProductList.template.html',
-  template: `<h1>product-list</h1>`,
+  selector: 'product-image',
+  inputs: ['product'],
+  styleUrls: ['./ProductList.component.css'],
+  template: `
+  <div class="product-image">
+    <img [src]="product.imageUrl" alt="">
+  </div>
+`
 })
-export class ProductListComponent {
+class ProductImage {
+  product: Product;
+}
+
+//product-department
+@Component({
+  selector: 'product-department',
+  inputs: ['product'],
+  styleUrls: ['./ProductList.component.css'],
+  template: `
+  <div class="product-department">
+    <span *ngFor="let name of product.department; let i=index">
+      <a class="product-nav" href="#">{{ name }}</a>
+      <span>{{i < (product.department.length-1) ? '>' : ''}}</span>
+    </span>
+  </div>
+`
+})
+class ProductDepartment {
+  product: Product;
+}
+
+//product-price
+@Component({
+  selector: 'product-price',
+  inputs: ['price'],
+  styleUrls: ['./ProductList.component.css'],
+  template: `
+  <div class="product-price"> \${{ price }} </div>
+`
+})
+class ProductPrice {
+
+}
+
+//product-row
+@Component({
+  selector: 'product-row',
+  inputs: ['product'],
+  directives: [ProductImage, ProductDepartment, ProductPrice],
+  styleUrls: ['./ProductList.component.css'],
+  template: `
+  <div  class="product-row">
+    <product-image [product]="product"></product-image>
+    <div class="product-info">
+      <div class="product-name">{{product.name}}</div>
+      <div class="product-sku">SKU #{{product.sku}}</div>
+      <product-department [product]="product"></product-department>
+    </div>
+    <product-price [price]="product.price"></product-price>
+  </div>
+`
+})
+class ProductRow {
+  product: Product;
+}
+
+//products-list
+@Component({
+  selector: 'products-list',
+  directives: [ProductRow],
+  styleUrls: ['./ProductList.component.css'],
+  inputs: ['productList'],
+  template: `
+    <product-row
+     *ngFor="let myProduct of productList"
+     [product]="myProduct"
+     ></product-row>
+`
+})
+class ProductsList {
+  productList: Product[];
+}
+
+//inventory-app
+@Component({
+  selector: 'inventory-app',
+  directives: [ProductsList],
+  styleUrls: ['./ProductList.component.css'],
+  template: `
+  <div class="inventory-app">
+    <products-list
+      [productList]="products"
+    >
+    </products-list>
+  </div>
+  `
+})
+
+
+export class InventoryApp {
   products: Product[];
+
   constructor() {
     this.products = [
       new Product(
@@ -34,7 +130,8 @@ export class ProductListComponent {
         29.99)
     ];
   }
-  ngOnInit() {
-    console.log("ProductListComponent");
+
+  productWasSelected(product: Product): void {
+    console.log('Product clicked: ', product);
   }
 }
